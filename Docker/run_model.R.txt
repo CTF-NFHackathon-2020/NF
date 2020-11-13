@@ -1,0 +1,7 @@
+library(readr)
+library(plyr)
+
+input_df <- source("/input/rna_train.txt")
+model    <- readRDS("MALIGNANT.rf")
+output   <- predict(model, input_df)
+write_csv(output, "/output/predictions.csv")
